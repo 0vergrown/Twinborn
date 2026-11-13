@@ -1,0 +1,61 @@
+{
+  "type": "apoli:function",
+  "entity_action": {
+    "type": "apoli:and",
+    "actions": [
+      {
+        "type": "apoli:detach_rope",
+        "slot": "twinborn_red_thread"
+      },
+      {
+        "type": "apoli:action_on_entity_set",
+        "set": "twinborn:twin_bond/twin",
+        "bientity_action": {
+          "type": "apoli:target_action",
+          "action": {
+            "type": "apoli:and",
+            "actions": [
+              {
+                "type": "apoli:detach_rope",
+                "slot": "twinborn_red_thread"
+              },
+              {
+                "type": "apoli:text",
+                "bar": "actionbar",
+                "text": {
+                  "translate": "message.twinborn.red_thread.cut"
+                },
+                "fadein": 4,
+                "duration": 50,
+                "fadeout": 12
+              },
+              {
+                "type": "apoli:play_sound",
+                "sound": "minecraft:entity.sheep.shear",
+                "volume": 0.8,
+                "pitch": 1.2
+              }
+            ]
+          }
+        },
+        "limit": 1
+      },
+      {
+        "type": "apoli:play_sound",
+        "sound": "minecraft:entity.sheep.shear",
+        "volume": 0.8,
+        "pitch": 1.2
+      },
+      {
+        "type": "apoli:text",
+        "bar": "actionbar",
+        "text": {
+          "translate": "message.twinborn.red_thread.cut"
+        },
+        "fadein": 4,
+        "duration": 50,
+        "fadeout": 12
+      }
+    ]
+  }
+}

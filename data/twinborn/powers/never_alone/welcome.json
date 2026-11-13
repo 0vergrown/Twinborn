@@ -1,0 +1,49 @@
+{
+  "type": "apoli:function",
+  "entity_action": {
+    "type": "apoli:if_else",
+    "condition": {
+      "type": "apoli:resource",
+      "resource": "twinborn:never_alone/away_shown",
+      "comparison": "==",
+      "compare_to": 1
+    },
+    "if_action": {
+      "type": "apoli:and",
+      "actions": [
+        {
+          "type": "apoli:modify_resource",
+          "resource": "twinborn:never_alone/away_shown",
+          "modifier": {
+            "operation": "set_total",
+            "value": 0
+          }
+        },
+        {
+          "type": "apoli:text",
+          "bar": "top_center",
+          "text": "",
+          "fadein": 10,
+          "duration": -1,
+          "fadeout": 20
+        },
+        {
+          "type": "apoli:text",
+          "bar": "actionbar",
+          "text": {
+            "translate": "message.twinborn.back"
+          },
+          "fadein": 4,
+          "duration": 60,
+          "fadeout": 20
+        },
+        {
+          "type": "apoli:play_sound",
+          "sound": "minecraft:block.beacon.activate",
+          "volume": 0.6,
+          "pitch": 1.4
+        }
+      ]
+    }
+  }
+}

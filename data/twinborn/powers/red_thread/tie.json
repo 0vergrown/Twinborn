@@ -1,0 +1,291 @@
+{
+  "type": "apoli:function",
+  "entity_action": {
+    "type": "apoli:if_else",
+    "condition": {
+      "type": "apoli:attached_to_rope",
+      "slot": "twinborn_red_thread",
+      "comparison": ">=",
+      "compare_to": 1
+    },
+    "if_action": {
+      "type": "apoli:run_function",
+      "function": "twinborn:twin_bond/nope",
+      "arguments": {
+        "reason": "message.twinborn.nope.thread_tied"
+      }
+    },
+    "else_action": {
+      "type": "apoli:if_else",
+      "condition": {
+        "type": "apoli:and",
+        "conditions": [
+          {
+            "type": "apoli:resource",
+            "resource": "twinborn:twin_bond/request",
+            "comparison": "==",
+            "compare_to": 93
+          },
+          {
+            "type": "apoli:resource",
+            "resource": "twinborn:twin_bond/request_timer",
+            "comparison": ">",
+            "compare_to": 0
+          }
+        ]
+      },
+      "if_action": {
+        "type": "apoli:and",
+        "actions": [
+          {
+            "type": "apoli:and",
+            "actions": [
+              {
+                "type": "apoli:modify_resource",
+                "resource": "twinborn:twin_bond/request",
+                "modifier": {
+                  "operation": "set_total",
+                  "value": 0
+                }
+              },
+              {
+                "type": "apoli:modify_resource",
+                "resource": "twinborn:twin_bond/request_timer",
+                "modifier": {
+                  "operation": "set_total",
+                  "value": 0
+                }
+              }
+            ]
+          },
+          {
+            "type": "apoli:action_on_entity_set",
+            "set": "twinborn:twin_bond/twin",
+            "bientity_action": {
+              "type": "apoli:if_else",
+              "condition": {
+                "type": "apoli:and",
+                "conditions": [
+                  {
+                    "type": "apoli:distance",
+                    "comparison": "<=",
+                    "compare_to": 12.0
+                  },
+                  {
+                    "type": "apoli:can_see"
+                  }
+                ]
+              },
+              "if_action": {
+                "type": "apoli:and",
+                "actions": [
+                  {
+                    "type": "apoli:attach_rope",
+                    "from": {
+                      "source": "self"
+                    },
+                    "to": {
+                      "source": "target"
+                    },
+                    "slot": "twinborn_red_thread",
+                    "texture": "twinborn:textures/rope/red_thread.png",
+                    "toggle": false,
+                    "controllable": false,
+                    "mode": "leash",
+                    "min_length": 2.0,
+                    "max_length": 12.0,
+                    "start_length": 12.0,
+                    "stiffness": 0.18,
+                    "radial_damping": 0.8,
+                    "break_beyond": 48.0
+                  },
+                  {
+                    "type": "apoli:actor_action",
+                    "action": {
+                      "type": "apoli:and",
+                      "actions": [
+                        {
+                          "type": "apoli:and",
+                          "actions": [
+                            {
+                              "type": "apoli:play_sound",
+                              "sound": "minecraft:entity.leash_knot.place",
+                              "volume": 1.0,
+                              "pitch": 1.3
+                            },
+                            {
+                              "type": "apoli:play_sound",
+                              "sound": "minecraft:block.amethyst_block.chime",
+                              "volume": 0.6,
+                              "pitch": 1.6
+                            },
+                            {
+                              "type": "apoli:spawn_particles",
+                              "particle": "minecraft:heart",
+                              "count": 3,
+                              "spread": {
+                                "x": 0.3,
+                                "y": 0.3,
+                                "z": 0.3
+                              },
+                              "speed": 0.0,
+                              "offset_y": 1.9
+                            }
+                          ]
+                        },
+                        {
+                          "type": "apoli:text",
+                          "bar": "actionbar",
+                          "text": {
+                            "translate": "message.twinborn.red_thread.tied"
+                          },
+                          "fadein": 4,
+                          "duration": 60,
+                          "fadeout": 12
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "apoli:target_action",
+                    "action": {
+                      "type": "apoli:and",
+                      "actions": [
+                        {
+                          "type": "apoli:and",
+                          "actions": [
+                            {
+                              "type": "apoli:play_sound",
+                              "sound": "minecraft:entity.leash_knot.place",
+                              "volume": 1.0,
+                              "pitch": 1.3
+                            },
+                            {
+                              "type": "apoli:play_sound",
+                              "sound": "minecraft:block.amethyst_block.chime",
+                              "volume": 0.6,
+                              "pitch": 1.6
+                            },
+                            {
+                              "type": "apoli:spawn_particles",
+                              "particle": "minecraft:heart",
+                              "count": 3,
+                              "spread": {
+                                "x": 0.3,
+                                "y": 0.3,
+                                "z": 0.3
+                              },
+                              "speed": 0.0,
+                              "offset_y": 1.9
+                            }
+                          ]
+                        },
+                        {
+                          "type": "apoli:text",
+                          "bar": "actionbar",
+                          "text": {
+                            "translate": "message.twinborn.red_thread.tied"
+                          },
+                          "fadein": 4,
+                          "duration": 60,
+                          "fadeout": 12
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "else_action": {
+                "type": "apoli:actor_action",
+                "action": {
+                  "type": "apoli:run_function",
+                  "function": "twinborn:twin_bond/nope",
+                  "arguments": {
+                    "reason": "message.twinborn.nope.thread_far"
+                  }
+                }
+              }
+            },
+            "limit": 1
+          }
+        ]
+      },
+      "else_action": {
+        "type": "apoli:action_on_entity_set",
+        "set": "twinborn:twin_bond/twin",
+        "bientity_action": {
+          "type": "apoli:and",
+          "actions": [
+            {
+              "type": "apoli:target_action",
+              "action": {
+                "type": "apoli:and",
+                "actions": [
+                  {
+                    "type": "apoli:modify_resource",
+                    "resource": "twinborn:twin_bond/request",
+                    "modifier": {
+                      "operation": "set_total",
+                      "value": 93
+                    }
+                  },
+                  {
+                    "type": "apoli:trigger_cooldown",
+                    "power": "twinborn:twin_bond/request_timer"
+                  },
+                  {
+                    "type": "apoli:play_sound",
+                    "sound": "minecraft:block.note_block.chime",
+                    "volume": 0.8,
+                    "pitch": 1.3
+                  },
+                  {
+                    "type": "apoli:text",
+                    "bar": "actionbar",
+                    "text": {
+                      "translate": "message.twinborn.red_thread.asks",
+                      "with": [
+                        {
+                          "keybind": "key.origins.primary_active"
+                        }
+                      ],
+                      "color": "#ffb3c1"
+                    },
+                    "fadein": 4,
+                    "duration": 100,
+                    "fadeout": 12
+                  }
+                ]
+              }
+            },
+            {
+              "type": "apoli:actor_action",
+              "action": {
+                "type": "apoli:and",
+                "actions": [
+                  {
+                    "type": "apoli:play_sound",
+                    "sound": "minecraft:block.note_block.pling",
+                    "volume": 0.5,
+                    "pitch": 1.6
+                  },
+                  {
+                    "type": "apoli:text",
+                    "bar": "actionbar",
+                    "text": {
+                      "translate": "message.twinborn.red_thread.sent"
+                    },
+                    "fadein": 4,
+                    "duration": 60,
+                    "fadeout": 12
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "limit": 1
+      }
+    }
+  }
+}

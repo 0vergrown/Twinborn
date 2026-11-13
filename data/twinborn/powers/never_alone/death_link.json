@@ -1,0 +1,20 @@
+{
+  "type": "apoli:action_on_death",
+  "bientity_action": {
+    "type": "apoli:target_action",
+    "action": {
+      "type": "apoli:action_on_entity_set",
+      "set": "twinborn:twin_bond/twin",
+      "bientity_action": {
+        "type": "apoli:target_action",
+        "action": {
+          "type": "apoli:damage",
+          "amount": 10000,
+          "damage_type": "twinborn:severed_bond"
+        }
+      },
+      "limit": 1
+    }
+  },
+  "hidden": true
+}

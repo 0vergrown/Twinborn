@@ -1,0 +1,25 @@
+{
+  "type": "apoli:modify_jump",
+  "modifier": {
+    "operation": "set_total",
+    "value": 0
+  },
+  "condition": {
+    "type": "apoli:and",
+    "conditions": [
+      {
+        "type": "apoli:entity_set_size",
+        "set": "twinborn:twin_bond/twin",
+        "comparison": ">=",
+        "compare_to": 1
+      },
+      {
+        "type": "apoli:resource",
+        "resource": "twinborn:twin_bond/online",
+        "comparison": "==",
+        "compare_to": 0
+      }
+    ]
+  },
+  "hidden": true
+}

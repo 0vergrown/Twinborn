@@ -1,0 +1,27 @@
+{
+  "type": "apoli:attribute",
+  "modifier": {
+    "name": "Twinborn limbo",
+    "attribute": "minecraft:generic.movement_speed",
+    "operation": "multiply_total",
+    "value": -1
+  },
+  "condition": {
+    "type": "apoli:and",
+    "conditions": [
+      {
+        "type": "apoli:entity_set_size",
+        "set": "twinborn:twin_bond/twin",
+        "comparison": ">=",
+        "compare_to": 1
+      },
+      {
+        "type": "apoli:resource",
+        "resource": "twinborn:twin_bond/online",
+        "comparison": "==",
+        "compare_to": 0
+      }
+    ]
+  },
+  "hidden": true
+}

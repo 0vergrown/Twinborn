@@ -1,0 +1,63 @@
+{
+  "type": "apoli:function",
+  "entity_action": {
+    "type": "apoli:if_else",
+    "condition": {
+      "type": "apoli:and",
+      "conditions": [
+        {
+          "type": "apoli:entity_set_size",
+          "set": "twinborn:twin_bond/twin",
+          "comparison": ">=",
+          "compare_to": 1
+        },
+        {
+          "type": "apoli:resource",
+          "resource": "twinborn:twin_bond/online",
+          "comparison": "==",
+          "compare_to": 0
+        }
+      ]
+    },
+    "if_action": {
+      "type": "apoli:if_else",
+      "condition": {
+        "type": "apoli:resource",
+        "resource": "twinborn:never_alone/away_shown",
+        "comparison": "==",
+        "compare_to": 0
+      },
+      "if_action": {
+        "type": "apoli:and",
+        "actions": [
+          {
+            "type": "apoli:modify_resource",
+            "resource": "twinborn:never_alone/away_shown",
+            "modifier": {
+              "operation": "set_total",
+              "value": 1
+            }
+          },
+          {
+            "type": "apoli:text",
+            "bar": "top_center",
+            "text": {
+              "translate": "message.twinborn.limbo",
+              "color": "#ffb3c1",
+              "italic": true
+            },
+            "fadein": 10,
+            "duration": -1,
+            "fadeout": 20
+          },
+          {
+            "type": "apoli:play_sound",
+            "sound": "minecraft:block.beacon.deactivate",
+            "volume": 0.6,
+            "pitch": 0.6
+          }
+        ]
+      }
+    }
+  }
+}

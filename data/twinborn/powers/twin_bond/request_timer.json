@@ -1,0 +1,18 @@
+{
+  "type": "apoli:cooldown",
+  "cooldown": 200,
+  "persistent": false,
+  "hud_render": {
+    "should_render": true,
+    "sprite_location": "twinborn:textures/gui/hud.png",
+    "bar_index": 0,
+    "icon_index": 0,
+    "condition": {
+      "type": "apoli:resource",
+      "resource": "twinborn:twin_bond/request",
+      "comparison": ">",
+      "compare_to": 0
+    }
+  },
+  "hidden": true
+}

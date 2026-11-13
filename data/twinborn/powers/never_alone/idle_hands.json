@@ -1,0 +1,28 @@
+{
+  "type": "apoli:prevent_item_use",
+  "item_condition": {
+    "type": "apoli:ingredient",
+    "ingredient": {
+      "item": "origins:orb_of_origin"
+    },
+    "inverted": true
+  },
+  "condition": {
+    "type": "apoli:and",
+    "conditions": [
+      {
+        "type": "apoli:entity_set_size",
+        "set": "twinborn:twin_bond/twin",
+        "comparison": ">=",
+        "compare_to": 1
+      },
+      {
+        "type": "apoli:resource",
+        "resource": "twinborn:twin_bond/online",
+        "comparison": "==",
+        "compare_to": 0
+      }
+    ]
+  },
+  "hidden": true
+}

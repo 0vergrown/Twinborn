@@ -1,0 +1,172 @@
+{
+  "type": "apoli:entity_set",
+  "persistent": true,
+  "action_on_remove": {
+    "type": "apoli:and",
+    "actions": [
+      {
+        "type": "apoli:invert",
+        "action": {
+          "type": "apoli:remove_from_entity_set",
+          "set": "twinborn:twin_bond/twin"
+        }
+      },
+      {
+        "type": "apoli:actor_action",
+        "action": {
+          "type": "apoli:and",
+          "actions": [
+            {
+              "type": "apoli:and",
+              "actions": [
+                {
+                  "type": "apoli:modify_resource",
+                  "resource": "twinborn:sharing/max_health",
+                  "modifier": {
+                    "operation": "set_total",
+                    "value": 0
+                  }
+                },
+                {
+                  "type": "apoli:modify_resource",
+                  "resource": "twinborn:sharing/armor",
+                  "modifier": {
+                    "operation": "set_total",
+                    "value": 0
+                  }
+                },
+                {
+                  "type": "apoli:modify_resource",
+                  "resource": "twinborn:sharing/attack_damage",
+                  "modifier": {
+                    "operation": "set_total",
+                    "value": 0
+                  }
+                },
+                {
+                  "type": "apoli:modify_resource",
+                  "resource": "twinborn:sharing/attack_speed",
+                  "modifier": {
+                    "operation": "set_total",
+                    "value": 0
+                  }
+                },
+                {
+                  "type": "apoli:modify_resource",
+                  "resource": "twinborn:sharing/reach",
+                  "modifier": {
+                    "operation": "set_total",
+                    "value": 0
+                  }
+                },
+                {
+                  "type": "apoli:modify_resource",
+                  "resource": "twinborn:sharing/movement_speed",
+                  "modifier": {
+                    "operation": "set_total",
+                    "value": 0
+                  }
+                }
+              ]
+            },
+            {
+              "type": "apoli:modify_resource",
+              "resource": "twinborn:twin_bond/online",
+              "modifier": {
+                "operation": "set_total",
+                "value": 0
+              }
+            },
+            {
+              "type": "apoli:modify_resource",
+              "resource": "twinborn:twin_bond/request",
+              "modifier": {
+                "operation": "set_total",
+                "value": 0
+              }
+            },
+            {
+              "type": "apoli:modify_resource",
+              "resource": "twinborn:twin_bond/request_timer",
+              "modifier": {
+                "operation": "set_total",
+                "value": 0
+              }
+            },
+            {
+              "type": "apoli:modify_resource",
+              "resource": "twinborn:never_alone/away_shown",
+              "modifier": {
+                "operation": "set_total",
+                "value": 0
+              }
+            },
+            {
+              "type": "apoli:detach_rope",
+              "slot": "twinborn_red_thread"
+            },
+            {
+              "type": "apoli:if_else",
+              "condition": {
+                "type": "apoli:exists"
+              },
+              "if_action": {
+                "type": "apoli:and",
+                "actions": [
+                  {
+                    "type": "apoli:and",
+                    "actions": [
+                      {
+                        "type": "apoli:play_sound",
+                        "sound": "minecraft:block.chain.break",
+                        "volume": 1.0,
+                        "pitch": 0.7
+                      },
+                      {
+                        "type": "apoli:play_sound",
+                        "sound": "minecraft:block.beacon.deactivate",
+                        "volume": 0.7,
+                        "pitch": 1.2
+                      }
+                    ]
+                  },
+                  {
+                    "type": "apoli:text",
+                    "bar": "top_center",
+                    "text": "",
+                    "fadein": 0,
+                    "duration": -1,
+                    "fadeout": 0
+                  },
+                  {
+                    "type": "apoli:text",
+                    "bar": "title",
+                    "text": {
+                      "translate": "message.twinborn.broken",
+                      "color": "#e8304a"
+                    },
+                    "fadein": 10,
+                    "duration": 50,
+                    "fadeout": 20
+                  },
+                  {
+                    "type": "apoli:text",
+                    "bar": "subtitle",
+                    "text": {
+                      "translate": "message.twinborn.broken.sub",
+                      "color": "#ffb3c1"
+                    },
+                    "fadein": 10,
+                    "duration": 50,
+                    "fadeout": 20
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "hidden": true
+}

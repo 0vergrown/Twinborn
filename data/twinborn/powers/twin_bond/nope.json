@@ -1,0 +1,29 @@
+{
+  "type": "apoli:function",
+  "hidden": true,
+  "parameters": [
+    "reason"
+  ],
+  "entity_action": {
+    "type": "apoli:and",
+    "actions": [
+      {
+        "type": "apoli:play_sound",
+        "sound": "minecraft:block.note_block.didgeridoo",
+        "volume": 0.6,
+        "pitch": 1.0
+      },
+      {
+        "type": "apoli:text",
+        "bar": "actionbar",
+        "text": {
+          "translate": "[reason]",
+          "color": "gray"
+        },
+        "fadein": 4,
+        "duration": 50,
+        "fadeout": 12
+      }
+    ]
+  }
+}

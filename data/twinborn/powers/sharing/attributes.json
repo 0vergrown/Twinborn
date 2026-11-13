@@ -1,0 +1,55 @@
+{
+  "type": "apoli:attribute",
+  "modifiers": [
+    {
+      "name": "Twinborn Max Health",
+      "attribute": "minecraft:generic.max_health",
+      "operation": "addition",
+      "value": "resource(twinborn:sharing/max_health) * 4"
+    },
+    {
+      "name": "Twinborn Armor",
+      "attribute": "minecraft:generic.armor",
+      "operation": "addition",
+      "value": "resource(twinborn:sharing/armor) * 4"
+    },
+    {
+      "name": "Twinborn Attack Damage",
+      "attribute": "minecraft:generic.attack_damage",
+      "operation": "addition",
+      "value": "resource(twinborn:sharing/attack_damage) * 2"
+    },
+    {
+      "name": "Twinborn Attack Speed",
+      "attribute": "minecraft:generic.attack_speed",
+      "operation": "addition",
+      "value": "resource(twinborn:sharing/attack_speed) * 1"
+    },
+    {
+      "name": "Twinborn Reach",
+      "attribute": "minecraft:player.block_interaction_range",
+      "operation": "addition",
+      "value": "resource(twinborn:sharing/reach) * 0.5"
+    },
+    {
+      "name": "Twinborn Reach",
+      "attribute": "minecraft:player.entity_interaction_range",
+      "operation": "addition",
+      "value": "resource(twinborn:sharing/reach) * 0.5"
+    },
+    {
+      "name": "Twinborn Speed",
+      "attribute": "minecraft:generic.movement_speed",
+      "operation": "multiply_base",
+      "value": "resource(twinborn:sharing/movement_speed) * 0.2"
+    }
+  ],
+  "update_health": true,
+  "condition": {
+    "type": "apoli:entity_set_size",
+    "set": "twinborn:twin_bond/twin",
+    "comparison": ">=",
+    "compare_to": 1
+  },
+  "hidden": true
+}

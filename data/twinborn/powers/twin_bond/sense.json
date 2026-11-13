@@ -1,0 +1,26 @@
+{
+  "type": "apoli:entity_glow",
+  "bientity_condition": {
+    "type": "apoli:in_entity_set",
+    "set": "twinborn:twin_bond/twin"
+  },
+  "use_teams": false,
+  "red": 1.0,
+  "green": 0.35,
+  "blue": 0.5,
+  "condition": {
+    "type": "apoli:and",
+    "conditions": [
+      {
+        "type": "apoli:sneaking"
+      },
+      {
+        "type": "apoli:entity_set_size",
+        "set": "twinborn:twin_bond/twin",
+        "comparison": ">=",
+        "compare_to": 1
+      }
+    ]
+  },
+  "hidden": true
+}

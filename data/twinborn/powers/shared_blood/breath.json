@@ -1,0 +1,44 @@
+{
+  "type": "apoli:resource",
+  "min": "if(air >= max_air, 1, 0)",
+  "max": "if(air >= max_air, 1, 0)",
+  "start_value": 1,
+  "persistent": false,
+  "on_change": [
+    {
+      "value": 1,
+      "entity_action": {
+        "type": "apoli:action_on_entity_set",
+        "set": "twinborn:twin_bond/twin",
+        "bientity_action": {
+          "type": "apoli:modify_resource",
+          "side": "target",
+          "resource": "twinborn:shared_blood/twin_breath",
+          "modifier": {
+            "operation": "set_total",
+            "value": 1
+          }
+        },
+        "limit": 1
+      }
+    },
+    {
+      "value": 0,
+      "entity_action": {
+        "type": "apoli:action_on_entity_set",
+        "set": "twinborn:twin_bond/twin",
+        "bientity_action": {
+          "type": "apoli:modify_resource",
+          "side": "target",
+          "resource": "twinborn:shared_blood/twin_breath",
+          "modifier": {
+            "operation": "set_total",
+            "value": 0
+          }
+        },
+        "limit": 1
+      }
+    }
+  ],
+  "hidden": true
+}

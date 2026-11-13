@@ -1,0 +1,11 @@
+{
+  "type": "apoli:climbing",
+  "allow_holding": true,
+  "condition": {
+    "type": "apoli:attached_to_rope",
+    "slot": "twinborn_red_thread",
+    "comparison": ">=",
+    "compare_to": 1
+  },
+  "hidden": true
+}

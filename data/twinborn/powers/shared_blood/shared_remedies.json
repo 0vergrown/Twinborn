@@ -1,0 +1,36 @@
+{
+  "type": "apoli:action_on_item_use",
+  "trigger": "finish",
+  "entity_action": {
+    "type": "apoli:delay",
+    "ticks": 1,
+    "action": {
+      "type": "apoli:action_on_entity_set",
+      "set": "twinborn:twin_bond/twin",
+      "bientity_action": {
+        "type": "apoli:transfer_effects",
+        "mode": "give",
+        "copy": true
+      },
+      "limit": 1
+    }
+  },
+  "condition": {
+    "type": "apoli:and",
+    "conditions": [
+      {
+        "type": "apoli:entity_set_size",
+        "set": "twinborn:twin_bond/twin",
+        "comparison": ">=",
+        "compare_to": 1
+      },
+      {
+        "type": "apoli:resource",
+        "resource": "twinborn:twin_bond/online",
+        "comparison": "==",
+        "compare_to": 1
+      }
+    ]
+  },
+  "hidden": true
+}

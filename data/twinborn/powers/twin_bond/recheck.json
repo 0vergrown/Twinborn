@@ -1,0 +1,79 @@
+{
+  "type": "apoli:function",
+  "entity_action": {
+    "type": "apoli:and",
+    "actions": [
+      {
+        "type": "apoli:modify_resource",
+        "resource": "twinborn:twin_bond/online",
+        "modifier": {
+          "operation": "set_total",
+          "value": 0
+        }
+      },
+      {
+        "type": "apoli:if_else",
+        "condition": {
+          "type": "apoli:entity_set_size",
+          "set": "twinborn:twin_bond/twin",
+          "comparison": ">=",
+          "compare_to": 1
+        },
+        "if_action": {
+          "type": "apoli:action_on_entity_set",
+          "set": "twinborn:twin_bond/twin",
+          "bientity_action": {
+            "type": "apoli:and",
+            "actions": [
+              {
+                "type": "apoli:modify_resource",
+                "side": "actor",
+                "resource": "twinborn:twin_bond/online",
+                "modifier": {
+                  "operation": "set_total",
+                  "value": 1
+                }
+              },
+              {
+                "type": "apoli:modify_resource",
+                "side": "target",
+                "resource": "twinborn:twin_bond/online",
+                "modifier": {
+                  "operation": "set_total",
+                  "value": 1
+                }
+              },
+              {
+                "type": "apoli:modify_resource",
+                "side": "target",
+                "resource": "twinborn:shared_blood/twin_breath",
+                "from": "twinborn:shared_blood/breath",
+                "modifier": {
+                  "operation": "set_total"
+                }
+              },
+              {
+                "type": "apoli:modify_resource",
+                "side": "actor",
+                "resource": "twinborn:shared_blood/twin_breath",
+                "from": "twinborn:shared_blood/breath",
+                "modifier": {
+                  "operation": "set_total"
+                }
+              }
+            ]
+          },
+          "limit": 1
+        }
+      },
+      {
+        "type": "apoli:delay",
+        "ticks": 4,
+        "action": {
+          "type": "apoli:run_function",
+          "function": "twinborn:never_alone/check"
+        }
+      }
+    ]
+  }
+}

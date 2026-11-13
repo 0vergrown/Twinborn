@@ -1,0 +1,28 @@
+{
+  "type": "apoli:resource",
+  "min": 0,
+  "max": 1,
+  "start_value": 0,
+  "persistent": false,
+  "on_change": [
+    {
+      "value": 0,
+      "entity_action": {
+        "type": "apoli:delay",
+        "ticks": 4,
+        "action": {
+          "type": "apoli:run_function",
+          "function": "twinborn:never_alone/check"
+        }
+      }
+    },
+    {
+      "value": 1,
+      "entity_action": {
+        "type": "apoli:run_function",
+        "function": "twinborn:never_alone/welcome"
+      }
+    }
+  ],
+  "hidden": true
+}

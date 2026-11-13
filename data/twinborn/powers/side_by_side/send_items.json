@@ -1,0 +1,333 @@
+{
+  "type": "apoli:function",
+  "entity_action": {
+    "type": "apoli:and",
+    "actions": [
+      {
+        "type": "apoli:modify_resource",
+        "resource": "twinborn:side_by_side/twin_dim",
+        "modifier": {
+          "operation": "set_total",
+          "value": 0
+        }
+      },
+      {
+        "type": "apoli:action_on_entity_set",
+        "set": "twinborn:twin_bond/twin",
+        "bientity_action": {
+          "type": "apoli:and",
+          "actions": [
+            {
+              "type": "apoli:modify_resource",
+              "side": "actor",
+              "resource": "twinborn:side_by_side/twin_x",
+              "modifier": {
+                "operation": "set_total",
+                "value": "target_x"
+              }
+            },
+            {
+              "type": "apoli:modify_resource",
+              "side": "actor",
+              "resource": "twinborn:side_by_side/twin_y",
+              "modifier": {
+                "operation": "set_total",
+                "value": "target_y"
+              }
+            },
+            {
+              "type": "apoli:modify_resource",
+              "side": "actor",
+              "resource": "twinborn:side_by_side/twin_z",
+              "modifier": {
+                "operation": "set_total",
+                "value": "target_z"
+              }
+            },
+            {
+              "type": "apoli:if_else_list",
+              "actions": [
+                {
+                  "condition": {
+                    "type": "apoli:target_condition",
+                    "condition": {
+                      "type": "apoli:dimension",
+                      "dimension": "minecraft:overworld"
+                    }
+                  },
+                  "action": {
+                    "type": "apoli:modify_resource",
+                    "side": "actor",
+                    "resource": "twinborn:side_by_side/twin_dim",
+                    "modifier": {
+                      "operation": "set_total",
+                      "value": 1
+                    }
+                  }
+                },
+                {
+                  "condition": {
+                    "type": "apoli:target_condition",
+                    "condition": {
+                      "type": "apoli:dimension",
+                      "dimension": "minecraft:the_nether"
+                    }
+                  },
+                  "action": {
+                    "type": "apoli:modify_resource",
+                    "side": "actor",
+                    "resource": "twinborn:side_by_side/twin_dim",
+                    "modifier": {
+                      "operation": "set_total",
+                      "value": 2
+                    }
+                  }
+                },
+                {
+                  "condition": {
+                    "type": "apoli:target_condition",
+                    "condition": {
+                      "type": "apoli:dimension",
+                      "dimension": "minecraft:the_end"
+                    }
+                  },
+                  "action": {
+                    "type": "apoli:modify_resource",
+                    "side": "actor",
+                    "resource": "twinborn:side_by_side/twin_dim",
+                    "modifier": {
+                      "operation": "set_total",
+                      "value": 3
+                    }
+                  }
+                },
+                {
+                  "condition": {
+                    "type": "apoli:constant",
+                    "value": true
+                  },
+                  "action": {
+                    "type": "apoli:modify_resource",
+                    "side": "actor",
+                    "resource": "twinborn:side_by_side/twin_dim",
+                    "modifier": {
+                      "operation": "set_total",
+                      "value": 0
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "limit": 1
+      },
+      {
+        "type": "apoli:area_of_effect",
+        "radius": 3,
+        "shape": "sphere",
+        "bientity_condition": {
+          "type": "apoli:target_condition",
+          "condition": {
+            "type": "apoli:entity_type",
+            "entity_type": "minecraft:item"
+          }
+        },
+        "bientity_action": {
+          "type": "apoli:if_else_list",
+          "actions": [
+            {
+              "condition": {
+                "type": "apoli:actor_condition",
+                "condition": {
+                  "type": "apoli:resource",
+                  "resource": "twinborn:side_by_side/twin_dim",
+                  "comparison": "==",
+                  "compare_to": 1
+                }
+              },
+              "action": {
+                "type": "apoli:target_action",
+                "action": {
+                  "type": "apoli:teleport",
+                  "relative": false,
+                  "x": "actor_resource(twinborn:side_by_side/twin_x)",
+                  "y": "actor_resource(twinborn:side_by_side/twin_y) + 0.25",
+                  "z": "actor_resource(twinborn:side_by_side/twin_z)",
+                  "dimension": "minecraft:overworld"
+                }
+              }
+            },
+            {
+              "condition": {
+                "type": "apoli:actor_condition",
+                "condition": {
+                  "type": "apoli:resource",
+                  "resource": "twinborn:side_by_side/twin_dim",
+                  "comparison": "==",
+                  "compare_to": 2
+                }
+              },
+              "action": {
+                "type": "apoli:target_action",
+                "action": {
+                  "type": "apoli:teleport",
+                  "relative": false,
+                  "x": "actor_resource(twinborn:side_by_side/twin_x)",
+                  "y": "actor_resource(twinborn:side_by_side/twin_y) + 0.25",
+                  "z": "actor_resource(twinborn:side_by_side/twin_z)",
+                  "dimension": "minecraft:the_nether"
+                }
+              }
+            },
+            {
+              "condition": {
+                "type": "apoli:actor_condition",
+                "condition": {
+                  "type": "apoli:resource",
+                  "resource": "twinborn:side_by_side/twin_dim",
+                  "comparison": "==",
+                  "compare_to": 3
+                }
+              },
+              "action": {
+                "type": "apoli:target_action",
+                "action": {
+                  "type": "apoli:teleport",
+                  "relative": false,
+                  "x": "actor_resource(twinborn:side_by_side/twin_x)",
+                  "y": "actor_resource(twinborn:side_by_side/twin_y) + 0.25",
+                  "z": "actor_resource(twinborn:side_by_side/twin_z)",
+                  "dimension": "minecraft:the_end"
+                }
+              }
+            },
+            {
+              "condition": {
+                "type": "apoli:and",
+                "conditions": [
+                  {
+                    "type": "apoli:actor_condition",
+                    "condition": {
+                      "type": "apoli:resource",
+                      "resource": "twinborn:side_by_side/twin_dim",
+                      "comparison": "==",
+                      "compare_to": 0
+                    }
+                  },
+                  {
+                    "type": "apoli:actor_condition",
+                    "condition": {
+                      "type": "apoli:or",
+                      "conditions": [
+                        {
+                          "type": "apoli:dimension",
+                          "dimension": "minecraft:overworld"
+                        },
+                        {
+                          "type": "apoli:dimension",
+                          "dimension": "minecraft:the_nether"
+                        },
+                        {
+                          "type": "apoli:dimension",
+                          "dimension": "minecraft:the_end"
+                        }
+                      ],
+                      "inverted": true
+                    }
+                  }
+                ]
+              },
+              "action": {
+                "type": "apoli:target_action",
+                "action": {
+                  "type": "apoli:teleport",
+                  "relative": false,
+                  "x": "actor_resource(twinborn:side_by_side/twin_x)",
+                  "y": "actor_resource(twinborn:side_by_side/twin_y) + 0.25",
+                  "z": "actor_resource(twinborn:side_by_side/twin_z)"
+                }
+              }
+            }
+          ]
+        },
+        "after_action": {
+          "type": "apoli:if_else",
+          "condition": {
+            "type": "apoli:random_chance",
+            "chance": "if(count > 0, 1, 0)"
+          },
+          "if_action": {
+            "type": "apoli:and",
+            "actions": [
+              {
+                "type": "apoli:play_sound",
+                "sound": "minecraft:entity.item.pickup",
+                "volume": 0.8,
+                "pitch": 0.7
+              },
+              {
+                "type": "apoli:spawn_particles",
+                "particle": "minecraft:portal",
+                "count": 24,
+                "spread": {
+                  "x": 0.6,
+                  "y": 0.6,
+                  "z": 0.6
+                },
+                "speed": 0.4,
+                "offset_y": 0.3
+              },
+              {
+                "type": "apoli:text",
+                "bar": "actionbar",
+                "text": {
+                  "translate": "message.twinborn.items.sent"
+                },
+                "fadein": 4,
+                "duration": 50,
+                "fadeout": 12
+              },
+              {
+                "type": "apoli:action_on_entity_set",
+                "set": "twinborn:twin_bond/twin",
+                "bientity_action": {
+                  "type": "apoli:target_action",
+                  "action": {
+                    "type": "apoli:and",
+                    "actions": [
+                      {
+                        "type": "apoli:play_sound",
+                        "sound": "minecraft:entity.item.pickup",
+                        "volume": 0.8,
+                        "pitch": 1.3
+                      },
+                      {
+                        "type": "apoli:text",
+                        "bar": "actionbar",
+                        "text": {
+                          "translate": "message.twinborn.items.received"
+                        },
+                        "fadein": 4,
+                        "duration": 50,
+                        "fadeout": 12
+                      }
+                    ]
+                  }
+                },
+                "limit": 1
+              }
+            ]
+          },
+          "else_action": {
+            "type": "apoli:run_function",
+            "function": "twinborn:twin_bond/nope",
+            "arguments": {
+              "reason": "message.twinborn.nope.no_items"
+            }
+          }
+        }
+      }
+    ]
+  }
+}

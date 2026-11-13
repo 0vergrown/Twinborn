@@ -1,0 +1,36 @@
+{
+  "type": "apoli:invulnerability",
+  "damage_condition": {
+    "type": "apoli:in_tag",
+    "tag": "minecraft:is_drowning"
+  },
+  "condition": {
+    "type": "apoli:and",
+    "conditions": [
+      {
+        "type": "apoli:and",
+        "conditions": [
+          {
+            "type": "apoli:entity_set_size",
+            "set": "twinborn:twin_bond/twin",
+            "comparison": ">=",
+            "compare_to": 1
+          },
+          {
+            "type": "apoli:resource",
+            "resource": "twinborn:twin_bond/online",
+            "comparison": "==",
+            "compare_to": 1
+          }
+        ]
+      },
+      {
+        "type": "apoli:resource",
+        "resource": "twinborn:shared_blood/twin_breath",
+        "comparison": "==",
+        "compare_to": 1
+      }
+    ]
+  },
+  "hidden": true
+}

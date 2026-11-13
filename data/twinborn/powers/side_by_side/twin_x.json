@@ -1,0 +1,6 @@
+{
+  "type": "apoli:resource",
+  "start_value": 0,
+  "persistent": false,
+  "hidden": true
+}

@@ -1,0 +1,70 @@
+{
+  "type": "apoli:overlay",
+  "condition": {
+    "type": "apoli:entity_set_size",
+    "set": "twinborn:twin_bond/twin",
+    "comparison": ">=",
+    "compare_to": 1
+  },
+  "overlays": [
+    {
+      "texture": "twinborn:textures/gui/portrait/frame.png",
+      "anchor": "top_left",
+      "x": 3,
+      "y": 3,
+      "width": 26,
+      "height": 26
+    },
+    {
+      "texture": "player_face",
+      "set": "twinborn:twin_bond/twin",
+      "anchor": "top_left",
+      "x": 8,
+      "y": 8,
+      "width": 16,
+      "height": 16,
+      "strength": "if(resource(twinborn:twin_bond/online) > 0, 1, 0.45)",
+      "red": "if(resource(twinborn:twin_bond/online) > 0, 1, 0.55)",
+      "green": "if(resource(twinborn:twin_bond/online) > 0, 1, 0.55)",
+      "blue": "if(resource(twinborn:twin_bond/online) > 0, 1, 0.6)"
+    },
+    {
+      "texture": "twinborn:textures/gui/portrait/away.png",
+      "anchor": "top_left",
+      "x": 20,
+      "y": 20,
+      "width": 9,
+      "height": 9,
+      "condition": {
+        "type": "apoli:resource",
+        "resource": "twinborn:twin_bond/online",
+        "comparison": "==",
+        "compare_to": 0
+      }
+    },
+    {
+      "texture": "twinborn:textures/gui/portrait/thread.png",
+      "anchor": "top_left",
+      "x": 20,
+      "y": 20,
+      "width": 9,
+      "height": 9,
+      "condition": {
+        "type": "apoli:and",
+        "conditions": [
+          {
+            "type": "apoli:resource",
+            "resource": "twinborn:twin_bond/online",
+            "comparison": "==",
+            "compare_to": 1
+          },
+          {
+            "type": "apoli:attached_to_rope",
+            "slot": "twinborn_red_thread"
+          }
+        ]
+      }
+    }
+  ],
+  "hidden": true
+}
